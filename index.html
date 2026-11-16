@@ -1,0 +1,525 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ançã Futebol Clube - Paixão, união e futebol.">
+    <title>Ançã Futebol Clube | Página Oficial</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #172033;
+            background: #fff;
+        }
+
+        :root {
+            --azul: #102b50;
+            --azul-claro: #1c4778;
+            --dourado: #d9ad53;
+            --cinza: #f4f6f9;
+        }
+
+        /* HEADER */
+
+        header {
+            height: 80px;
+            padding: 0 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--azul);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #344054;
+            font-size: 13px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--dourado);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 590px;
+            display: flex;
+            align-items: center;
+            padding: 80px 10%;
+            color: white;
+            background:
+                linear-gradient(90deg, rgba(8,25,49,0.95), rgba(8,25,49,0.55)),
+                url('https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=1800') center/cover;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            color: var(--dourado);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 6vw, 68px);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: var(--dourado);
+        }
+
+        .hero p {
+            color: #dce3ed;
+            line-height: 1.8;
+            font-size: 15px;
+            max-width: 520px;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 27px;
+            background: var(--dourado);
+            color: var(--azul);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+
+        /* SECÇÕES */
+
+        section {
+            padding: 85px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title span {
+            color: var(--dourado);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            color: var(--azul);
+            font-size: 32px;
+            margin-top: 12px;
+        }
+
+        /* SOBRE */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .about-text span {
+            color: var(--dourado);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .about-text h2 {
+            color: var(--azul);
+            font-size: 32px;
+            margin: 15px 0;
+        }
+
+        .about-text p {
+            color: #667085;
+            line-height: 1.9;
+            font-size: 14px;
+        }
+
+        /* EQUIPAS */
+
+        .teams {
+            background: var(--cinza);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .team-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 23px;
+        }
+
+        .team-info h3 {
+            color: var(--azul);
+            margin-bottom: 10px;
+            font-size: 17px;
+        }
+
+        .team-info p {
+            color: #667085;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        /* CONTACTOS */
+
+        .contact {
+            background: var(--azul);
+            color: white;
+            text-align: center;
+        }
+
+        .contact .section-title h2 {
+            color: white;
+        }
+
+        .contact p {
+            color: #dce3ed;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .contact-details {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 35px;
+            margin-top: 35px;
+        }
+
+        .contact-item {
+            font-size: 13px;
+            color: #e1e7ef;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #091a30;
+            color: #aeb9c8;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 12px;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* MOBILE */
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--azul);
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        @media(max-width: 768px) {
+            header {
+                padding: 0 5%;
+            }
+
+            .logo {
+                font-size: 14px;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 25px;
+                gap: 22px;
+                box-shadow: 0 8px 15px rgba(0,0,0,0.08);
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                min-height: 530px;
+                padding: 60px 7%;
+            }
+
+            section {
+                padding: 65px 7%;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 27px;
+            }
+
+            .contact-details {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="imagens/brasao.png" alt="Emblema Ançã FC">
+            <span>ANÇÃ FUTEBOL CLUBE</span>
+        </div>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">☰</button>
+
+        <nav id="menu">
+            <a href="#inicio">Início</a>
+            <a href="#sobre">O Clube</a>
+            <a href="#equipas">Equipas</a>
+            <a href="#contactos">Contactos</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <div class="hero" id="inicio">
+            <div class="hero-content">
+                <span class="hero-tag">PAIXÃO • UNIÃO • TRADIÇÃO</span>
+
+                <h1>MAIS QUE UM CLUBE.<br><span>UMA PAIXÃO.</span></h1>
+
+                <p>
+                    Bem-vindo ao Ançã Futebol Clube.
+                    Um clube marcado pela dedicação ao desporto,
+                    pelo espírito de equipa e pela paixão pelo futebol.
+                </p>
+
+                <a href="#sobre" class="btn">CONHECE O CLUBE</a>
+            </div>
+        </div>
+
+        <!-- SOBRE -->
+        <section class="about" id="sobre">
+
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1000"
+                     alt="Campo de futebol">
+            </div>
+
+            <div class="about-text">
+                <span>A NOSSA IDENTIDADE</span>
+
+                <h2>O orgulho de representar Ançã.</h2>
+
+                <p>
+                    O Ançã Futebol Clube representa a paixão pelo futebol
+                    e o compromisso com o desenvolvimento desportivo.
+                    Mais do que competir, procuramos promover valores
+                    como o respeito, a dedicação e o espírito de equipa.
+                </p>
+            </div>
+
+        </section>
+
+        <!-- EQUIPAS -->
+        <section class="teams" id="equipas">
+
+            <div class="section-title">
+                <span>O NOSSO FUTURO</span>
+                <h2>As nossas equipas</h2>
+            </div>
+
+            <div class="team-grid">
+
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?q=80&w=800"
+                         alt="Futebol sénior">
+                    <div class="team-info">
+                        <h3>Seniores</h3>
+                        <p>Representar o clube com ambição, dedicação e espírito competitivo.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?q=80&w=800"
+                         alt="Formação de futebol">
+                    <div class="team-info">
+                        <h3>Formação</h3>
+                        <p>Desenvolver jovens atletas dentro e fora do campo.</p>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=800"
+                         alt="Futebol de equipa">
+                    <div class="team-info">
+                        <h3>O Clube</h3>
+                        <p>Uma comunidade unida pela paixão pelo desporto.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTACTOS -->
+        <section class="contact" id="contactos">
+
+            <div class="section-title">
+                <span>ESTAMOS À TUA ESPERA</span>
+                <h2>Faz parte da nossa história.</h2>
+            </div>
+
+            <p>
+                Queres saber mais sobre o Ançã FC?
+                Entra em contacto connosco e acompanha a atividade do clube.
+            </p>
+
+            <div class="contact-details">
+                <div class="contact-item">
+                    <strong>Localização</strong><br>
+                    Ançã, Cantanhede
+                </div>
+
+                <div class="contact-item">
+                    <strong>Redes sociais</strong><br>
+                    Acompanha o clube online
+                </div>
+
+                <div class="contact-item">
+                    <strong>Contacto</strong><br>
+                    Informações brevemente
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <strong>ANÇÃ FUTEBOL CLUBE</strong>
+        <p>© 2026 Ançã FC. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const menu = document.getElementById("menu");
+
+        menuBtn.addEventListener("click", () => {
+            menu.classList.toggle("active");
+        });
+
+        document.querySelectorAll("#menu a").forEach(link => {
+            link.addEventListener("click", () => {
+                menu.classList.remove("active");
+            });
+        });
+    </script>
+
+</body>
+</html>
